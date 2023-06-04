@@ -5,7 +5,7 @@ namespace Assets.Scripts.Utility
 {
     public enum GameplayEvent
     {
-        GameStart, GameEnd
+        GameStart, GameEnd, Error
     }
 
     public class EventBus
