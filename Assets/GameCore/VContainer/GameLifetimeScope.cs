@@ -17,8 +17,6 @@ namespace VContainer
         {
             builder.RegisterEntryPoint<GameDirector>();
             builder.Register<EventBus>(Lifetime.Singleton);
-            builder.Register<JsonSerialization>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.Register<UWebRequest>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<UIManager>(Lifetime.Scoped).AsImplementedInterfaces();
             builder.RegisterInstance(_assetRefs);
         }
