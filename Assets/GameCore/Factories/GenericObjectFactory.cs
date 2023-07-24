@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Utility;
+﻿using GameCore.Events;
 using UnityEngine;
 
 namespace GameCore.Factories

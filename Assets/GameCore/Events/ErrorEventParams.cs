@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Utility;
-
-namespace Events
+﻿namespace GameCore.Events
 {
     public class ErrorEventParams : BaseEventParams
     {

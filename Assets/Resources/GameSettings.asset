@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed46df8742a0428e8c75440615fba6a7, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  _playerMovementSpeed: 900
+  _aiMovementSpeed: 500
+  _scoreRequiredToWin: 5
+  _resetPositionKey: 114
+  _openMenuKey: 27
+  _howToPlayText: "* Control your paddle by moving the mouse while holding down the
+    left mouse button. You can only move on your half of the arena (the right half).\n*
+    Click the {0} key at any time to reset the positions of the paddles and puck.\n*
+    Press the {1} key to pause the game and open the menu. \n* Your objective is
+    to get the puck through the opponent's goal (the green line) while protecting
+    your own goal.\n* The first player to get {2} points wins!"

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Assets.Scripts.Utility
+namespace GameCore.Events
 {
     public enum GameplayEvent
     {
-        GameStart, GameEnd, Error
+        GameStart, GamePause, GameOver, Reset, ExitGame
     }
 
     public class EventBus
@@ -14,13 +14,10 @@ namespace Assets.Scripts.Utility
 
         public void Subscribe(GameplayEvent eventType, Action<BaseEventParams> handler)
         {
-            var handlerList = _subscription[eventType];
-            if (handlerList == null)
-            {
-                handlerList = new List<Action<BaseEventParams>>();
-                _subscription.Add(eventType, handlerList);
-            }
+            if(_subscription.ContainsKey(eventType) == false) 
+                _subscription.Add(eventType, new List<Action<BaseEventParams>>());
 
+            var handlerList = _subscription[eventType];
             if (handlerList.Contains(handler) == false)
                 handlerList.Add(handler);
         }
@@ -32,10 +29,10 @@ namespace Assets.Scripts.Utility
 
         public void Publish(GameplayEvent eventType, BaseEventParams eventParams)
         {
-            var handlerList = _subscription[eventType];
-            if (handlerList == null)
+            if (_subscription.ContainsKey(eventType) == false)
                 return;
 
+            var handlerList = _subscription[eventType];
             foreach (var handler in handlerList)
                 handler?.Invoke(eventParams);
         }

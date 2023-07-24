@@ -1,4 +1,5 @@
-using Assets.Scripts.Utility;
+using GameCore.Events;
+using UnityEngine;
 using VContainer.Unity;
 
 namespace GameCore
@@ -10,6 +11,7 @@ namespace GameCore
         public GameDirector(EventBus bus)
         {
             _eventBus = bus;
+            _eventBus.Subscribe(GameplayEvent.ExitGame, Exit);
         }
         
         public void Start()
@@ -20,7 +22,13 @@ namespace GameCore
 
         public void Tick()
         {
-            
+            if(Input.GetKeyDown(KeyCode.Escape))
+                _eventBus.Publish(GameplayEvent.GamePause, new EmptyParams());
+        }
+
+        private void Exit(BaseEventParams eventParams)
+        {
+            Application.Quit();
         }
     }
 }

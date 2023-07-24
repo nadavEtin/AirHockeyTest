@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Utility.Events;
-
-namespace Assets.Scripts.Utility
+﻿namespace GameCore.Events
 {
     public abstract class BaseEventParams
     {
