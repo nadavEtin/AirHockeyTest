@@ -12,22 +12,20 @@ namespace Paddles
 
         protected override void FixedUpdate()
         {
-            if (_gameRunning == false) return;
-
-            _speed = _maximumSpeed;
+            if (_gameRunning == false) 
+                return;
+            
             var curPuckPos = _puckTransform.position;
             
             //The puck is the in player's half
             if (curPuckPos.z >= _movementBoundaries.Right)
             {
-                _movementDestination = _startingPos;
-                _speed = Random.Range(_maximumSpeed * 0.4f, _maximumSpeed * 0.8f);
+                _movementDestination = new Vector3(Mathf.Clamp(curPuckPos.x, _movementBoundaries.Up,
+                    _movementBoundaries.Down), transform.position.y, _startingPos.z);
             }
-                
-                /*_movementDestination = new Vector3(Mathf.Clamp(curPuckPos.x, _movementBoundaries.Up,
-                    _movementBoundaries.Down), transform.position.y, _startingPos.z);*/
+
             //The puck is in the ai's half
-            else if (curPuckPos.z <= _movementBoundaries.Right)
+            else if (curPuckPos.z <= _movementBoundaries.Right && curPuckPos.z > _movementBoundaries.Left)
                 _movementDestination = new Vector3(Mathf.Clamp(curPuckPos.x, _movementBoundaries.Up,
                     _movementBoundaries.Down), transform.position.y, Mathf.Clamp(curPuckPos.z, _movementBoundaries.Left,
                     _movementBoundaries.Right));

@@ -28,18 +28,11 @@ namespace Paddles
         {
             _rb = GetComponent<Rigidbody>();
             _startingPos = transform.position;
-            
-            
-            
-            
-            
-            _gameRunning = true;
         }
 
         protected virtual void FixedUpdate()
         {
             var dir = _movementDestination - transform.position;
-            //dir.Normalize();
             _rb.velocity = dir * (_speed * Time.fixedDeltaTime);
         }
 

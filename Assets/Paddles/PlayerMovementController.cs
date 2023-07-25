@@ -14,8 +14,8 @@ namespace Paddles
 
         protected override void FixedUpdate()
         {
-            /*if (_gameRunning == false)
-            return;*/
+            if (_gameRunning == false)
+                return;
 
             if (Input.GetMouseButton(0))
             {

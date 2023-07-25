@@ -1,5 +1,6 @@
 ﻿using System;
 using GameCore.Events;
+using GameCore.ScriptableObjects;
 using UnityEngine;
 using VContainer;
 
@@ -13,15 +14,27 @@ namespace Puck
         private EventBus _eventBus;
         private Vector3 _startingPos;
         private Rigidbody _rb;
+        private float _maxSpeed;
 
         [Inject]
-        private void Construct(EventBus eventBus)
+        private void Construct(EventBus eventBus, GameSettings settings)
         {
             _eventBus = eventBus;
+            _maxSpeed = settings.PuckMaxSpeed;
             _startingPos = transform.position;
-            _rb = GetComponent<Rigidbody>();
+            //_rb = GetComponent<Rigidbody>();
             _eventBus.Subscribe(GameplayEvent.Reset, ResetPos);
             _eventBus.Subscribe(GameplayEvent.GamePause, GamePause);
+        }
+
+        private void Start()
+        {
+            _rb = GetComponent<Rigidbody>();
+        }
+
+        private void FixedUpdate()
+        {
+            _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, _maxSpeed);
         }
 
         private void ResetPos(BaseEventParams eventParams)

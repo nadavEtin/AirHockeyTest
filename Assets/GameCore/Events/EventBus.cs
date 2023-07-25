@@ -5,7 +5,7 @@ namespace GameCore.Events
 {
     public enum GameplayEvent
     {
-        GameStart, GamePause, GameOver, Reset, ExitGame
+        GameStart, GamePause, GameOver, Reset, Score, ExitGame
     }
 
     public class EventBus

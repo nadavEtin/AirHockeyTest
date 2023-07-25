@@ -13,15 +13,19 @@ namespace GameCore.ScriptableObjects
         public Boundaries PlayerBoundaries { private set; get; }
         public Boundaries AiBoundaries { private set; get; }
 
-        [SerializeField] private float _playerMovementSpeed, _aiMovementSpeed;
+        [SerializeField] private float _playerMovementSpeed, _aiMovementSpeed, _puckMaxSpeed;
         [SerializeField] private int _scoreRequiredToWin;
-        [SerializeField] private KeyCode _resetPositionKey, _openMenuKey;
+        [SerializeField] private KeyCode _resetPositionKey;
+        [SerializeField] private KeyCode _pauseKey;
         [TextArea(10, 20)] [SerializeField] private string _howToPlayText;
         public float PlayerMovementSpeed => _playerMovementSpeed;
         public float AiMovementSpeed => _aiMovementSpeed;
-
+        public float PuckMaxSpeed => _puckMaxSpeed;
+        public int ScoreRequiredToWin => _scoreRequiredToWin;
+        public KeyCode ResetPositionKey => _resetPositionKey;
+        public KeyCode PauseKey => _pauseKey;
         public string HowToPlayText => string.Format(_howToPlayText, _resetPositionKey.ToString(),
-            _openMenuKey.ToString(), _scoreRequiredToWin.ToString());
+            _pauseKey.ToString(), _scoreRequiredToWin.ToString());
 
         public void SetMovementBoundaries(IArenaScript arena)
         {

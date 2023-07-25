@@ -6,12 +6,12 @@ namespace GameCore.UI
 {
     public class UIManager : MonoBehaviour, IUIManager
     {
-        private AssetRefs _assetRefs;
+        //private AssetRefs _assetRefs;
         
         [Inject]
         private void Construct(AssetRefs assetRefs)
         {
-            _assetRefs = assetRefs;
+            //_assetRefs = assetRefs;
         }
     }
 }

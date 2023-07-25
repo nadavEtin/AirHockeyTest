@@ -1,17 +1,16 @@
-using System;
 using TMPro;
 using UnityEngine;
 
 namespace GameCore.UI
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public class ScoreView : MonoBehaviour
+    public class ScoreView : MonoBehaviour, IScoreView
     {
-        private TextMeshProUGUI _scoreText;
+        public TextMeshProUGUI ScoreText { get; set; }
         
         private void Start()
         {
-            _scoreText = GetComponent<TextMeshProUGUI>();
+            ScoreText = GetComponent<TextMeshProUGUI>();
         }
     }
 }
