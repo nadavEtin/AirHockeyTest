@@ -2,7 +2,7 @@
 {
     public class ScoreParams : BaseEventParams
     {
-        public bool PlayerScored;
+        public readonly bool PlayerScored;
 
         public ScoreParams(bool playerScored)
         {

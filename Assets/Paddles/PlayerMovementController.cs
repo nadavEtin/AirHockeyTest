@@ -1,4 +1,3 @@
-using System;
 using GameCore;
 using GameCore.Events;
 using GameCore.ScriptableObjects;
@@ -17,6 +16,7 @@ namespace Paddles
             if (_gameRunning == false)
                 return;
 
+            //Only move the player's paddle when left mouse is pressed
             if (Input.GetMouseButton(0))
             {
                 _movementDestination = _playerInput.MousePosition;

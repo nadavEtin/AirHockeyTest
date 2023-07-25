@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Arena;
 using Paddles;
 using UnityEngine;
-using UnityEngine.Serialization;
-using VContainer;
 
 namespace GameCore.ScriptableObjects
 {
@@ -10,14 +8,14 @@ namespace GameCore.ScriptableObjects
     [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/Game Settings")]
     public class GameSettings : ScriptableObject
     {
-        public Boundaries PlayerBoundaries { private set; get; }
-        public Boundaries AiBoundaries { private set; get; }
-
         [SerializeField] private float _playerMovementSpeed, _aiMovementSpeed, _puckMaxSpeed;
         [SerializeField] private int _scoreRequiredToWin;
         [SerializeField] private KeyCode _resetPositionKey;
         [SerializeField] private KeyCode _pauseKey;
         [TextArea(10, 20)] [SerializeField] private string _howToPlayText;
+        
+        public Boundaries PlayerBoundaries { private set; get; }
+        public Boundaries AiBoundaries { private set; get; }
         public float PlayerMovementSpeed => _playerMovementSpeed;
         public float AiMovementSpeed => _aiMovementSpeed;
         public float PuckMaxSpeed => _puckMaxSpeed;

@@ -1,5 +1,4 @@
-﻿using System;
-using GameCore.Events;
+﻿using GameCore.Events;
 using GameCore.ScriptableObjects;
 using UnityEngine;
 using VContainer;
@@ -22,18 +21,14 @@ namespace Puck
             _eventBus = eventBus;
             _maxSpeed = settings.PuckMaxSpeed;
             _startingPos = transform.position;
-            //_rb = GetComponent<Rigidbody>();
+            _rb = GetComponent<Rigidbody>();
             _eventBus.Subscribe(GameplayEvent.Reset, ResetPos);
             _eventBus.Subscribe(GameplayEvent.GamePause, GamePause);
         }
 
-        private void Start()
-        {
-            _rb = GetComponent<Rigidbody>();
-        }
-
         private void FixedUpdate()
         {
+            //Limit the puck to a reasonable movement speed
             _rb.velocity = Vector3.ClampMagnitude(_rb.velocity, _maxSpeed);
         }
 
@@ -46,12 +41,6 @@ namespace Puck
         private void GamePause(BaseEventParams eventParams)
         {
             _rb.velocity = Vector3.zero;
-        }
-
-        private void OnDestroy()
-        {
-            //_eventBus.Unsubscribe(GameplayEvent.Reset, ResetPos);
-            //_eventBus.Unsubscribe(GameplayEvent.GamePause, GamePause);
         }
     }
 }

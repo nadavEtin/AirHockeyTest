@@ -583,7 +583,6 @@ MonoBehaviour:
   - {fileID: 8608007194402519341}
   - {fileID: 569844523569704231}
   - {fileID: 751250727}
-  _assetRefs: {fileID: 11400000, guid: 447d8520b18fde6439035e2637c627f1, type: 2}
   _gameSettings: {fileID: 11400000, guid: 54ed2f88cfd413f4f87e51712178e859, type: 2}
   _arena: {fileID: 1984289106}
   _puck: {fileID: 8601712494218426321}
@@ -2207,7 +2206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1424691024910280161, guid: cc82d35581e02f34c9e06aaa2b5293da, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1424691024910280161, guid: cc82d35581e02f34c9e06aaa2b5293da, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2490,7 +2489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7449217596855613116, guid: 9e4d61c893edd3b469e5d5b48f401ef2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 7449217596855613116, guid: 9e4d61c893edd3b469e5d5b48f401ef2, type: 3}
       propertyPath: m_LocalRotation.w

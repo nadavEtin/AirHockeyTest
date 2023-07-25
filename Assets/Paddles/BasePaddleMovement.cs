@@ -1,6 +1,4 @@
-﻿using System;
-using GameCore;
-using GameCore.Events;
+﻿using GameCore.Events;
 using UnityEngine;
 
 namespace Paddles
@@ -12,9 +10,10 @@ namespace Paddles
         protected float _speed, _maximumSpeed;
         protected Vector3 _startingPos;
         protected Vector3 _movementDestination;
+        protected bool _gameRunning;
+        
         private EventBus _eventBus;
         private Rigidbody _rb;
-        protected bool _gameRunning;
 
         protected void BaseSetup(EventBus eventBus)
         {
@@ -43,6 +42,7 @@ namespace Paddles
                    curPos.z <= _movementBoundaries.Left || curPos.z >= _movementBoundaries.Right;
         }
 
+        //Keep the paddles inside the play area
         protected void LimitMovement()
         {
             var position = transform.position;
@@ -58,6 +58,7 @@ namespace Paddles
             _gameRunning = false;
         }
         
+        //Also used to resume the game after pausing
         private void GameStart(BaseEventParams eventParams)
         {
             _gameRunning = true;
@@ -71,9 +72,9 @@ namespace Paddles
 
         private void OnDestroy()
         {
-            _eventBus.Subscribe(GameplayEvent.Reset, Reset);
-            _eventBus.Subscribe(GameplayEvent.GamePause, GamePause);
-            _eventBus.Subscribe(GameplayEvent.GameStart, GameStart);
+            _eventBus.Unsubscribe(GameplayEvent.Reset, Reset);
+            _eventBus.Unsubscribe(GameplayEvent.GamePause, GamePause);
+            _eventBus.Unsubscribe(GameplayEvent.GameStart, GameStart);
         }
     }
     

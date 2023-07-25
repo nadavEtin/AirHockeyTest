@@ -1,9 +1,7 @@
-using System;
 using GameCore.Events;
 using GameCore.ScriptableObjects;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using VContainer;
 
 namespace GameCore.UI
@@ -44,6 +42,7 @@ namespace GameCore.UI
             _eventBus.Subscribe(GameplayEvent.GamePause, ShowMenu);
         }
 
+        //Show the menu when pausing the game
         private void ShowMenu(BaseEventParams eventParams)
         {
             gameObject.SetActive(true);

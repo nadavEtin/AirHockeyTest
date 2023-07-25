@@ -2,7 +2,8 @@
 {
     public class ScoreKeeper : IScoreKeeper
     {
-        private int _playerScore, _aiScore, _scoreToWin;
+        private int _playerScore, _aiScore;
+        private readonly int _scoreToWin;
 
         public string CurrentScoreString => $"Score:\n{_aiScore} - {_playerScore}";
 

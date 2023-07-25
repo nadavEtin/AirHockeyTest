@@ -4,6 +4,6 @@ namespace GameCore.UI
 {
     public interface IScoreView
     {
-        TextMeshProUGUI ScoreText { get; set; }
+        TextMeshProUGUI ScoreText { get; }
     }
 }

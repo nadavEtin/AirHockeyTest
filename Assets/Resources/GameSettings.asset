@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   _playerMovementSpeed: 900
-  _aiMovementSpeed: 750
+  _aiMovementSpeed: 1000
   _puckMaxSpeed: 20
-  _scoreRequiredToWin: 1
+  _scoreRequiredToWin: 5
   _resetPositionKey: 114
   _pauseKey: 27
   _howToPlayText: "* Control your paddle by moving the mouse while holding down the

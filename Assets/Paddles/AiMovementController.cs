@@ -17,7 +17,7 @@ namespace Paddles
             
             var curPuckPos = _puckTransform.position;
             
-            //The puck is the in player's half
+            //The puck is the in the player's half
             if (curPuckPos.z >= _movementBoundaries.Right)
             {
                 _movementDestination = new Vector3(Mathf.Clamp(curPuckPos.x, _movementBoundaries.Up,

@@ -7,6 +7,8 @@ using VContainer.Unity;
 
 namespace GameCore
 {
+    //Class used to detect user input and communicate that data
+    //to the rest of the project
     public class PlayerInput : ITickable, IDisposable, IPlayerInput
     {
         public Vector3 MousePosition {private set; get; }
@@ -15,12 +17,7 @@ namespace GameCore
         private readonly GameSettings _settings;
         private bool _gameRunning;
         private readonly Camera _camera;
-        private Action<KeyCode> _relevantInputCb;
-
-        private void GameStart(BaseEventParams eventParams)
-        {
-            _gameRunning = true;
-        }
+        private readonly Action<KeyCode> _relevantInputCb;
 
         public void Dispose()
         {
@@ -46,10 +43,10 @@ namespace GameCore
             _settings = settings;
             _relevantInputCb = director.PlayerInput;
             _eventBus.Subscribe(GameplayEvent.GameStart, GameStart);
-
-
-
-
+        }
+        
+        private void GameStart(BaseEventParams eventParams)
+        {
             _gameRunning = true;
         }
     }

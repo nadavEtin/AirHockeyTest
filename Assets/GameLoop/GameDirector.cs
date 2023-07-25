@@ -11,7 +11,7 @@ namespace GameLoop
         private readonly EventBus _eventBus;
         private readonly IScoreKeeper _scoreKeeper;
         private readonly IScoreView _scoreView;
-        private GameSettings _settings;
+        private readonly GameSettings _settings;
         
         private GameDirector(EventBus bus, IScoreView scoreView, GameSettings settings)
         {
@@ -38,11 +38,9 @@ namespace GameLoop
             _scoreKeeper.UpdateScore(parameters.PlayerScored);
             _scoreView.ScoreText.text = _scoreKeeper.CurrentScoreString;
             
-            //Check if a player scored enough to win
-            if(_scoreKeeper.CheckGameOver())
-                _eventBus.Publish(GameplayEvent.GameOver, new EmptyParams());
-            else
-                _eventBus.Publish(GameplayEvent.Reset, new EmptyParams());
+            //If either player scored enough to win end the game, otherwise reset positions
+            _eventBus.Publish(_scoreKeeper.CheckGameOver() ? GameplayEvent.GameOver : GameplayEvent.Reset,
+                new EmptyParams());
         }
 
         private void Exit(BaseEventParams eventParams)
